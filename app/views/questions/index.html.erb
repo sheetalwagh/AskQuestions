@@ -14,10 +14,8 @@
   <tr>
     <td><%= question.title %></td>
     <td><%= question.description %></td>
-    <td><%= question.user %></td>
+    <td><%= question.user.name %></td>
     <td><%= link_to 'Show', question %></td>
-    <td><%= link_to 'Edit', edit_question_path(question) %></td>
-    <td><%= link_to 'Destroy', question, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
