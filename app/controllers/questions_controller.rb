@@ -44,7 +44,7 @@ class QuestionsController < ApplicationController
   # POST /questions.xml
   def create
     @question = Question.new(params[:question])
-
+    @question.user_id = current_user.id
     respond_to do |format|
       if @question.save
         format.html { redirect_to(@question, :notice => 'Question was successfully created.') }
@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
   # PUT /questions/1.xml
   def update
     @question = Question.find(params[:id])
-
+    @question.user_id = current_user.id
     respond_to do |format|
       if @question.update_attributes(params[:question])
         format.html { redirect_to(@question, :notice => 'Question was successfully updated.') }
