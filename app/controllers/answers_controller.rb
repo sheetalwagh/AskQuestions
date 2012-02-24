@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
   # GET /answers/1.xml
   def show
     @answer = Answer.find(params[:id])
-
+    #@answer.user= current_user.name
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @answer }
@@ -40,12 +40,13 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.xml
   def create
-    @answer = Answer.new(params[:answer])
 
+    @answer = current_user.answers.build(params[:answer].merge({:question_id => params[:question_id]}))
+    
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to(@answer, :notice => 'Answer was successfully created.') }
-        format.xml  { render :xml => @answer, :status => :created, :location => @answer }
+        format.html { redirect_to(@answer.question, :notice => 'Answer was successfully created.') }
+        format.xml  { render :xml => @answer.question_id, :status => :created, :location => @answer.question_id }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @answer.errors, :status => :unprocessable_entity }

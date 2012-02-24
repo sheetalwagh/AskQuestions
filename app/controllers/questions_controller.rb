@@ -17,10 +17,14 @@ class QuestionsController < ApplicationController
   # GET /questions/1.xml
   def show
     @question = Question.find(params[:id])
-
+    @answers = @question.answers.includes(:user)
+    @answer = @question.answers.build
+     
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @question }
+      format.xml  { render :xml => @answer }
+      
     end
   end
 

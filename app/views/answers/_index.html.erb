@@ -1,0 +1,14 @@
+Listing answers
+<br>
+
+<% @answers.each do |answer| %>
+  <tr>
+    <td><%= answer.description %></td>
+    <td><%= answer.user.name %></td>
+  </tr>
+  <br />
+<% end %>
+
+<br />
+
+<%= render "answers/form"%>

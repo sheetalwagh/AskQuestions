@@ -1,11 +1,9 @@
+<div>
 <p id="notice"><%= notice %></p>
 
 <p>
   <b>Title:</b>
   <%= @question.title %>
-</p>
-
-<p>
   <b>Description:</b>
   <%= @question.description %>
 </p>
@@ -13,12 +11,16 @@
 <p>
   <b>User:</b>
   <%= @question.user.name %>
-</p>
 
 <% if current_user.id == @question.user_id %>
-<div>
   <td><%= link_to 'Edit', edit_question_path(@question) %></td>
   <td><%= link_to 'Destroy', @question, :confirm => 'Are you sure?', :method => :delete %></td>
-</div>
 <% end %>
+</div>
+</p>
+
+<p>
+<%= render 'answers/index'%>
+</p>
+
 <%= link_to 'Back', questions_path %>

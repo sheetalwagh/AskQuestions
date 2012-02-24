@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   has_many :questions
+  has_many :answers
+  
+  validates_presence_of :first_name, :message => 'can not be blank'
+  validates_presence_of :last_name, :message => 'can not be blank'
   
   def name
     first_name + " " + last_name

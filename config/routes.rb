@@ -1,14 +1,18 @@
 AskQuestion::Application.routes.draw do
-  resources :answers
-
-  resources :questions
-
   devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  
+
+  resources :questions do
+    resources :answers
+  end
+
+
 
   root :to => "questions#index"
+  
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

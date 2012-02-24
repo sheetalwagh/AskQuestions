@@ -1,25 +1,15 @@
+<%= link_to 'New Question', new_question_path %>
 <h1>Listing questions</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @questions.each do |question| %>
-  <tr>
-    <td><%= question.title %></td>
-    <td><%= question.description %></td>
-    <td><%= question.user.name %></td>
-    <td><%= link_to 'Show', question %></td>
-  </tr>
+  <div>
+    <%= link_to question.title, question %>
+    <%= question.description %>
+    <%= question.user.name %>
+  </div>
 <% end %>
-</table>
+
 
 <br />
 
-<%= link_to 'New Question', new_question_path %>
+

@@ -8,6 +8,7 @@ gem 'rails', '3.0.11'
 gem 'pg'
 gem 'devise'
 
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
