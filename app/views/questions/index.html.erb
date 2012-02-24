@@ -1,15 +1,38 @@
-<%= link_to 'New Question', new_question_path %>
-<h1>Listing questions</h1>
-
-<% @questions.each do |question| %>
-  <div>
-    <%= link_to question.title, question %>
-    <%= question.description %>
-    <%= question.user.name %>
+<div class="row">
+  <div class="span12">
+    <h2 style="float:left;">Top Question</h2>
+    <%= link_to 'New Question', new_question_path, :class => "btn btn-large", :style => "float:right;"%>
   </div>
-<% end %>
-
-
-<br />
-
+</div>
+    
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <!--Body content-->
+      <table class="table table-striped">
+        <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td>
+              <div>
+                <div>
+                  <h3><%= link_to question.title, question %></h3>
+                </div>
+                <div>
+                  <%= question.description %>
+                  <span style="float:right;"><%= question.user.name %></span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="span3">
+      <!--Sidebar content-->
+    </div>
+  </div>
+</div>
 
