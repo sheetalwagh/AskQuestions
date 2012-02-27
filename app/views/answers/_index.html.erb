@@ -1,14 +1,36 @@
 Listing answers
 <br>
 
-<% @answers.each do |answer| %>
-  <tr>
-    <td><%= answer.description %></td>
-    <td><%= answer.user.name %></td>
-  </tr>
-  <br />
-<% end %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <!--Body content-->
+      <table class="table table-striped">
+        <tbody>
+        <% @answers.each do |answer| %>
+          <tr>
+            <td>
+              <div>
+                <div>
+                  <%= answer.description %>
+                  <span style="float:right;"><%= answer.user.name %></span>
+                </div>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+     </table>
+    </div>
+  </div>
+</div>
 
 <br />
 
 <%= render "answers/form"%>
+
+
+
+
+
+    
